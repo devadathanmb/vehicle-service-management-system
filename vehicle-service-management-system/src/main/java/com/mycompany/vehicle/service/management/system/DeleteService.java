@@ -4,6 +4,16 @@
  */
 package com.mycompany.vehicle.service.management.system;
 
+import java.awt.Color;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author devadathan
@@ -13,8 +23,21 @@ public class DeleteService extends javax.swing.JFrame {
     /**
      * Creates new form DeleteService
      */
+     Connection con = null;
+    Statement st = null;
+    PreparedStatement pst = null;  
+    ResultSet rs = null;
     public DeleteService() {
-        initComponents();
+         try {
+             initComponents();
+             final String URL = "jdbc:mysql://localhost:3306/serviceDB";
+             final String username = "sqluser";
+             final String password = "";
+             Class.forName("com.mysql.cj.jdbc.Driver");
+             con = DriverManager.getConnection(URL, username, password);
+         } catch (SQLException | ClassNotFoundException ex) {
+             Logger.getLogger(DeleteService.class.getName()).log(Level.SEVERE, null, ex);
+         }
     }
 
     /**
@@ -29,9 +52,10 @@ public class DeleteService extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        vehicleNumberField1 = new javax.swing.JTextField();
-        viewStatusBtn1 = new javax.swing.JButton();
+        serviceIdField = new javax.swing.JTextField();
+        deleteServiceBtn = new javax.swing.JButton();
         homeBtn1 = new javax.swing.JButton();
+        messageField = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Vehicle Service Management System");
@@ -46,20 +70,20 @@ public class DeleteService extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Liberation Mono", 1, 30)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(51, 0, 102));
-        jLabel5.setText("VEHICLE NUMBER : ");
+        jLabel5.setText("SERVICE ID :");
 
-        vehicleNumberField1.setFont(new java.awt.Font("Liberation Mono", 1, 24)); // NOI18N
-        vehicleNumberField1.setForeground(new java.awt.Color(51, 0, 102));
+        serviceIdField.setFont(new java.awt.Font("Liberation Mono", 1, 24)); // NOI18N
+        serviceIdField.setForeground(new java.awt.Color(51, 0, 102));
 
-        viewStatusBtn1.setBackground(new java.awt.Color(255, 51, 0));
-        viewStatusBtn1.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
-        viewStatusBtn1.setForeground(new java.awt.Color(255, 255, 255));
-        viewStatusBtn1.setText("DELETE SERVICE");
-        viewStatusBtn1.setToolTipText("");
-        viewStatusBtn1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
-        viewStatusBtn1.addActionListener(new java.awt.event.ActionListener() {
+        deleteServiceBtn.setBackground(new java.awt.Color(255, 51, 0));
+        deleteServiceBtn.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
+        deleteServiceBtn.setForeground(new java.awt.Color(255, 255, 255));
+        deleteServiceBtn.setText("DELETE SERVICE");
+        deleteServiceBtn.setToolTipText("");
+        deleteServiceBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
+        deleteServiceBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewStatusBtn1ActionPerformed(evt);
+                deleteServiceBtnActionPerformed(evt);
             }
         });
 
@@ -74,6 +98,10 @@ public class DeleteService extends javax.swing.JFrame {
             }
         });
 
+        messageField.setFont(new java.awt.Font("Monospaced", 3, 24)); // NOI18N
+        messageField.setForeground(new java.awt.Color(51, 0, 153));
+        messageField.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -83,19 +111,24 @@ public class DeleteService extends javax.swing.JFrame {
                 .addComponent(homeBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 126, Short.MAX_VALUE)
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(vehicleNumberField1, javax.swing.GroupLayout.PREFERRED_SIZE, 486, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(serviceIdField, javax.swing.GroupLayout.PREFERRED_SIZE, 486, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(177, 177, 177))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 785, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(447, 447, 447)
-                .addComponent(viewStatusBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 551, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(462, 462, 462)
+                        .addComponent(deleteServiceBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(149, 149, 149)
+                        .addComponent(messageField, javax.swing.GroupLayout.PREFERRED_SIZE, 970, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -111,10 +144,12 @@ public class DeleteService extends javax.swing.JFrame {
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(155, 155, 155)
-                        .addComponent(vehicleNumberField1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(84, 84, 84)
-                .addComponent(viewStatusBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(191, Short.MAX_VALUE))
+                        .addComponent(serviceIdField, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addComponent(messageField, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47)
+                .addComponent(deleteServiceBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(99, 99, 99))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -136,12 +171,32 @@ public class DeleteService extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void viewStatusBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewStatusBtn1ActionPerformed
-        // TODO add your handling code here:
-        System.out.println("View status button pressed");
-        new Status().setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_viewStatusBtn1ActionPerformed
+    private void deleteServiceBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteServiceBtnActionPerformed
+         try {
+             // TODO add your handling code here:
+             System.out.println("View status button pressed");
+             final String serviceId = serviceIdField.getText();
+             
+             if (serviceId.isEmpty()){
+                 messageField.setText("Please provide the service id of the record to be deleted.");
+             }
+             pst = con.prepareStatement("DELETE FROM services WHERE service_id = (?)");
+             pst.setString(1, serviceId);
+             int result = pst.executeUpdate();
+             if (result == 0){
+                 messageField.setForeground(Color.RED);
+                 messageField.setText("Cannot find service with service id : " + serviceId);
+             }
+             else {
+                messageField.setForeground(Color.GREEN);
+                messageField.setText("Successfully delete service with service id :  " + serviceId);
+                serviceIdField.setText("");
+             }
+         } catch (SQLException ex) {
+             Logger.getLogger(DeleteService.class.getName()).log(Level.SEVERE, null, ex);
+         }
+
+    }//GEN-LAST:event_deleteServiceBtnActionPerformed
 
     private void homeBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBtn1ActionPerformed
         // TODO add your handling code here:
@@ -186,17 +241,12 @@ public class DeleteService extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton homeBtn;
+    private javax.swing.JButton deleteServiceBtn;
     private javax.swing.JButton homeBtn1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField vehicleNumberField;
-    private javax.swing.JTextField vehicleNumberField1;
-    private javax.swing.JButton viewStatusBtn;
-    private javax.swing.JButton viewStatusBtn1;
+    private javax.swing.JLabel messageField;
+    private javax.swing.JTextField serviceIdField;
     // End of variables declaration//GEN-END:variables
 }
