@@ -4,6 +4,18 @@
  */
 package com.mycompany.vehicle.service.management.system;
 
+import java.awt.Color;
+import java.awt.Font;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author devadathan
@@ -13,8 +25,23 @@ public class ServiceLog extends javax.swing.JFrame {
     /**
      * Creates new form ServiceLog
      */
+    Connection con = null;
+    Statement st = null;
+    PreparedStatement pst = null;  
+    ResultSet rs = null;
     public ServiceLog() {
-        initComponents();
+        try {
+            initComponents();
+            Font bigFont = new Font("Monospaced", Font.BOLD, 20); // or whatever
+            serviceTable.getTableHeader().setFont(bigFont);
+            final String URL = "jdbc:mysql://localhost:3306/serviceDB";
+            final String username = "sqluser";
+            final String password = "";
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            con = DriverManager.getConnection(URL, username, password);
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(ServiceLog.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -30,7 +57,8 @@ public class ServiceLog extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         homeBtn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        serviceTable = new javax.swing.JTable();
+        fetchBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Vehicle Service Management System");
@@ -54,43 +82,52 @@ public class ServiceLog extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setFont(new java.awt.Font("Liberation Mono", 1, 24)); // NOI18N
-        jTable1.setForeground(new java.awt.Color(51, 0, 102));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        serviceTable.setFont(new java.awt.Font("Liberation Mono", 1, 18)); // NOI18N
+        serviceTable.setForeground(new java.awt.Color(51, 0, 102));
+        serviceTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+
             },
             new String [] {
-                "SNO", "VEHICLE NUMBER ", "TYPE", "MODEL", "DATE OF SERVICE", "SERVICE HEAD", "STATUS"
+                "SERVICE ID", "VEHICLE NUMBER ", "VEHICLE TYPE", "VEHICLE MODEL", "DATE OF SERVICE", "SERVICE HEAD", "CUSTOMER NAME", "CUSTOMER CONTACT", "STATUS"
             }
         ));
-        jTable1.setName("logTable"); // NOI18N
-        jTable1.setRowHeight(50);
-        jScrollPane1.setViewportView(jTable1);
+        serviceTable.setName("logTable"); // NOI18N
+        serviceTable.setRowHeight(50);
+        jScrollPane1.setViewportView(serviceTable);
+
+        fetchBtn.setBackground(new java.awt.Color(49, 10, 49));
+        fetchBtn.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
+        fetchBtn.setForeground(new java.awt.Color(204, 255, 255));
+        fetchBtn.setText("FETCH DATA");
+        fetchBtn.setToolTipText("");
+        fetchBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
+        fetchBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fetchBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(homeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(277, 277, 277)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addComponent(homeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(571, 571, 571)
+                        .addComponent(jLabel1)
+                        .addGap(0, 707, Short.MAX_VALUE)))
+                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(25, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(fetchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(667, 667, 667))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -100,21 +137,25 @@ public class ServiceLog extends javax.swing.JFrame {
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(homeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 571, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(71, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 598, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(fetchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1243, Short.MAX_VALUE)
+            .addGap(0, 1715, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createSequentialGroup()
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 761, Short.MAX_VALUE)
+            .addGap(0, 814, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -129,6 +170,21 @@ public class ServiceLog extends javax.swing.JFrame {
         new Home().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_homeBtnActionPerformed
+
+    private void fetchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fetchBtnActionPerformed
+        try {
+            DefaultTableModel dtm = (DefaultTableModel) serviceTable.getModel();
+           
+            pst = con.prepareStatement("SELECT * FROM services");
+            rs = pst.executeQuery();
+            while(rs.next()){
+                 dtm.addRow(new Object[] { rs.getString("service_id"), rs.getString("vehicle_number"), rs.getString("vehicleType"), rs.getString("vehicle_model"), rs.getString("service_date"), rs.getString("service_head_id"), rs.getString("customer_name"), rs.getString("customer_number"), rs.getString("service_status") });
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceLog.class.getName()).log(Level.SEVERE, null, ex);
+        }
+                
+    }//GEN-LAST:event_fetchBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -166,10 +222,11 @@ public class ServiceLog extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton fetchBtn;
     private javax.swing.JButton homeBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable serviceTable;
     // End of variables declaration//GEN-END:variables
 }
