@@ -4,17 +4,40 @@
  */
 package com.mycompany.vehicle.service.management.system;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author devadathan
  */
 public class NewService extends javax.swing.JFrame {
 
+    Connection con = null;
+    Statement st = null;
+    PreparedStatement pst = null;  
+    ResultSet rs = null;
     /**
      * Creates new form NewService
      */
     public NewService() {
-        initComponents();
+        try {
+            initComponents();
+            final String URL = "jdbc:mysql://localhost:3306/serviceDB";
+            final String username = "sqluser";
+            final String password = "";
+            Class.forName("com.mysql.cj.jdbc.Driver");
+                        con = DriverManager.getConnection(URL, username, password);
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(NewService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+     
     }
 
     /**
@@ -284,6 +307,7 @@ public class NewService extends javax.swing.JFrame {
     private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
         // TODO add your handling code here:
         System.out.println("Submit button pressed");
+        
         new Home().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_submitBtnActionPerformed
