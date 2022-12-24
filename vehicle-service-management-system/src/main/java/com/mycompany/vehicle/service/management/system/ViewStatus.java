@@ -39,19 +39,20 @@ public class ViewStatus extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(136, 183, 181));
         jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Monospaced", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 0, 51));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("VIEW STATUS");
 
-        jLabel4.setFont(new java.awt.Font("Cantarell", 0, 30)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setFont(new java.awt.Font("Liberation Mono", 1, 30)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(51, 0, 102));
         jLabel4.setText("VEHICLE NUMBER : ");
 
-        vehicleNumberField.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
+        vehicleNumberField.setFont(new java.awt.Font("Cantarell", 1, 24)); // NOI18N
+        vehicleNumberField.setForeground(new java.awt.Color(51, 0, 102));
 
         viewStatusBtn.setBackground(new java.awt.Color(49, 10, 49));
-        viewStatusBtn.setFont(new java.awt.Font("Cantarell", 1, 24)); // NOI18N
+        viewStatusBtn.setFont(new java.awt.Font("Liberation Mono", 1, 24)); // NOI18N
         viewStatusBtn.setForeground(new java.awt.Color(204, 255, 255));
         viewStatusBtn.setText("VIEW STATUS");
         viewStatusBtn.setToolTipText("");
@@ -63,7 +64,7 @@ public class ViewStatus extends javax.swing.JFrame {
         });
 
         homeBtn.setBackground(new java.awt.Color(0, 102, 255));
-        homeBtn.setFont(new java.awt.Font("Cantarell", 1, 24)); // NOI18N
+        homeBtn.setFont(new java.awt.Font("Liberation Mono", 1, 24)); // NOI18N
         homeBtn.setForeground(new java.awt.Color(255, 255, 255));
         homeBtn.setText("HOME");
         homeBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 3, true));
@@ -115,7 +116,7 @@ public class ViewStatus extends javax.swing.JFrame {
                         .addComponent(vehicleNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(84, 84, 84)
                 .addComponent(viewStatusBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(199, Short.MAX_VALUE))
+                .addContainerGap(187, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -126,9 +127,9 @@ public class ViewStatus extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();

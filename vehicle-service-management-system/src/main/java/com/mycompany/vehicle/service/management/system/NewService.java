@@ -55,17 +55,17 @@ public class NewService extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(136, 183, 181));
         jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Monospaced", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 0, 51));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("NEW SERVICE");
 
-        jLabel2.setFont(new java.awt.Font("Cantarell", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Liberation Mono", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 0, 102));
         jLabel2.setText("VEHICLE NUMBER :");
 
         homeBtn.setBackground(new java.awt.Color(0, 102, 255));
-        homeBtn.setFont(new java.awt.Font("Cantarell", 1, 24)); // NOI18N
+        homeBtn.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
         homeBtn.setForeground(new java.awt.Color(255, 255, 255));
         homeBtn.setText("HOME");
         homeBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 3, true));
@@ -75,26 +75,28 @@ public class NewService extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Cantarell", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setFont(new java.awt.Font("Liberation Mono", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(51, 0, 102));
         jLabel3.setText("CUSTOMER CONTACT NUMBER : ");
 
-        jLabel4.setFont(new java.awt.Font("Cantarell", 1, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setFont(new java.awt.Font("Liberation Mono", 1, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(51, 0, 102));
         jLabel4.setText("VEHICLE TYPE :");
 
-        jLabel5.setFont(new java.awt.Font("Cantarell", 1, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setFont(new java.awt.Font("Liberation Mono", 1, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(51, 0, 102));
         jLabel5.setText("SERVICE TYPE :");
 
-        vechicleNumberField1.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
+        vechicleNumberField1.setFont(new java.awt.Font("Liberation Mono", 0, 24)); // NOI18N
+        vechicleNumberField1.setForeground(new java.awt.Color(51, 0, 102));
         vechicleNumberField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 vechicleNumberField1ActionPerformed(evt);
             }
         });
 
-        jComboBox1.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
+        jComboBox1.setFont(new java.awt.Font("Liberation Mono", 0, 24)); // NOI18N
+        jComboBox1.setForeground(new java.awt.Color(51, 0, 102));
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "car", "motorcycle", "truck", "bus", " " }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,36 +104,40 @@ public class NewService extends javax.swing.JFrame {
             }
         });
 
-        vechicleNumberField2.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
+        vechicleNumberField2.setFont(new java.awt.Font("Liberation Mono", 0, 24)); // NOI18N
+        vechicleNumberField2.setForeground(new java.awt.Color(51, 0, 102));
         vechicleNumberField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 vechicleNumberField2ActionPerformed(evt);
             }
         });
 
-        vechicleNumberField3.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
+        vechicleNumberField3.setFont(new java.awt.Font("Liberation Mono", 0, 24)); // NOI18N
+        vechicleNumberField3.setForeground(new java.awt.Color(51, 0, 102));
         vechicleNumberField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 vechicleNumberField3ActionPerformed(evt);
             }
         });
 
-        jLabel6.setFont(new java.awt.Font("Cantarell", 1, 24)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setFont(new java.awt.Font("Liberation Mono", 1, 24)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(51, 0, 102));
         jLabel6.setText("SERVICE HEAD ID :");
 
-        jLabel7.setFont(new java.awt.Font("Cantarell", 1, 24)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setFont(new java.awt.Font("Liberation Mono", 1, 24)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(51, 0, 102));
         jLabel7.setText("CUSTOMER NAME :");
 
-        vechicleNumberField4.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
+        vechicleNumberField4.setFont(new java.awt.Font("Liberation Mono", 0, 24)); // NOI18N
+        vechicleNumberField4.setForeground(new java.awt.Color(51, 0, 102));
         vechicleNumberField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 vechicleNumberField4ActionPerformed(evt);
             }
         });
 
-        vechicleNumberField5.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
+        vechicleNumberField5.setFont(new java.awt.Font("Liberation Mono", 0, 24)); // NOI18N
+        vechicleNumberField5.setForeground(new java.awt.Color(51, 0, 102));
         vechicleNumberField5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 vechicleNumberField5ActionPerformed(evt);
@@ -139,7 +145,7 @@ public class NewService extends javax.swing.JFrame {
         });
 
         submitBtn.setBackground(new java.awt.Color(49, 10, 49));
-        submitBtn.setFont(new java.awt.Font("Cantarell", 1, 24)); // NOI18N
+        submitBtn.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
         submitBtn.setForeground(new java.awt.Color(204, 255, 255));
         submitBtn.setText("SUBMIT");
         submitBtn.setToolTipText("");
@@ -159,12 +165,10 @@ public class NewService extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(142, 142, 142)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGap(54, 54, 54)))

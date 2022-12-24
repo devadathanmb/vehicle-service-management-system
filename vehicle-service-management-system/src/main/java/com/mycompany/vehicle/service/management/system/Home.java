@@ -40,13 +40,13 @@ public class Home extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(136, 183, 181));
         jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Monospaced", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 0, 51));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("VEHICLE SERVICE MANAGEMENT SYSTEM");
 
         viewServiceLogBtn.setBackground(new java.awt.Color(49, 10, 49));
-        viewServiceLogBtn.setFont(new java.awt.Font("Cantarell", 1, 24)); // NOI18N
+        viewServiceLogBtn.setFont(new java.awt.Font("Liberation Mono", 1, 24)); // NOI18N
         viewServiceLogBtn.setForeground(new java.awt.Color(204, 255, 255));
         viewServiceLogBtn.setText("VIEW SERVICE LOG");
         viewServiceLogBtn.setToolTipText("");
@@ -58,7 +58,7 @@ public class Home extends javax.swing.JFrame {
         });
 
         editServiceBtn.setBackground(new java.awt.Color(49, 10, 49));
-        editServiceBtn.setFont(new java.awt.Font("Cantarell", 1, 24)); // NOI18N
+        editServiceBtn.setFont(new java.awt.Font("Liberation Mono", 1, 24)); // NOI18N
         editServiceBtn.setForeground(new java.awt.Color(204, 255, 255));
         editServiceBtn.setText("EDIT SERVICE");
         editServiceBtn.setToolTipText("");
@@ -70,7 +70,7 @@ public class Home extends javax.swing.JFrame {
         });
 
         serviceStatusBtn.setBackground(new java.awt.Color(49, 10, 49));
-        serviceStatusBtn.setFont(new java.awt.Font("Cantarell", 1, 24)); // NOI18N
+        serviceStatusBtn.setFont(new java.awt.Font("Liberation Mono", 1, 24)); // NOI18N
         serviceStatusBtn.setForeground(new java.awt.Color(204, 255, 255));
         serviceStatusBtn.setText("SERVICE STATUS");
         serviceStatusBtn.setToolTipText("");
@@ -82,7 +82,7 @@ public class Home extends javax.swing.JFrame {
         });
 
         newServiceButton.setBackground(new java.awt.Color(49, 10, 49));
-        newServiceButton.setFont(new java.awt.Font("Cantarell", 1, 24)); // NOI18N
+        newServiceButton.setFont(new java.awt.Font("Liberation Mono", 1, 24)); // NOI18N
         newServiceButton.setForeground(new java.awt.Color(204, 255, 255));
         newServiceButton.setText("NEW SERVICE");
         newServiceButton.setToolTipText("");
@@ -94,7 +94,7 @@ public class Home extends javax.swing.JFrame {
         });
 
         deleteServiceBtn.setBackground(new java.awt.Color(49, 10, 49));
-        deleteServiceBtn.setFont(new java.awt.Font("Cantarell", 1, 24)); // NOI18N
+        deleteServiceBtn.setFont(new java.awt.Font("Liberation Mono", 1, 24)); // NOI18N
         deleteServiceBtn.setForeground(new java.awt.Color(204, 255, 255));
         deleteServiceBtn.setText("DELETE SERVICE");
         deleteServiceBtn.setToolTipText("");

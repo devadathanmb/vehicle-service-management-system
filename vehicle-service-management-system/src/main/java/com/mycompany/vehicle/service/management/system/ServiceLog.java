@@ -38,13 +38,13 @@ public class ServiceLog extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(136, 183, 181));
         jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Monospaced", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 0, 51));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("SERVICE LOG");
 
         homeBtn.setBackground(new java.awt.Color(0, 102, 255));
-        homeBtn.setFont(new java.awt.Font("Cantarell", 1, 24)); // NOI18N
+        homeBtn.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
         homeBtn.setForeground(new java.awt.Color(255, 255, 255));
         homeBtn.setText("HOME");
         homeBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 3, true));
@@ -54,22 +54,23 @@ public class ServiceLog extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
+        jTable1.setFont(new java.awt.Font("Liberation Mono", 1, 24)); // NOI18N
+        jTable1.setForeground(new java.awt.Color(51, 0, 102));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "SNO", "VEHICLE NUMBER ", "DATE OF SERVICE", "SERVICE HEAD", "STATUS"
+                "SNO", "VEHICLE NUMBER ", "TYPE", "MODEL", "DATE OF SERVICE", "SERVICE HEAD", "STATUS"
             }
         ));
         jTable1.setName("logTable"); // NOI18N

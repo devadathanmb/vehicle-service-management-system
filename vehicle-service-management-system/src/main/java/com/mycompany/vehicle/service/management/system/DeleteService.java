@@ -39,20 +39,21 @@ public class DeleteService extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(136, 183, 181));
         jPanel2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        jLabel2.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Monospaced", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 0, 51));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("DELETE SERVICE");
 
-        jLabel5.setFont(new java.awt.Font("Cantarell", 0, 30)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setFont(new java.awt.Font("Liberation Mono", 1, 30)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(51, 0, 102));
         jLabel5.setText("VEHICLE NUMBER : ");
 
-        vehicleNumberField1.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
+        vehicleNumberField1.setFont(new java.awt.Font("Liberation Mono", 1, 24)); // NOI18N
+        vehicleNumberField1.setForeground(new java.awt.Color(51, 0, 102));
 
         viewStatusBtn1.setBackground(new java.awt.Color(255, 51, 0));
-        viewStatusBtn1.setFont(new java.awt.Font("Cantarell", 1, 24)); // NOI18N
-        viewStatusBtn1.setForeground(new java.awt.Color(255, 255, 51));
+        viewStatusBtn1.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
+        viewStatusBtn1.setForeground(new java.awt.Color(255, 255, 255));
         viewStatusBtn1.setText("DELETE SERVICE");
         viewStatusBtn1.setToolTipText("");
         viewStatusBtn1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
@@ -63,7 +64,7 @@ public class DeleteService extends javax.swing.JFrame {
         });
 
         homeBtn1.setBackground(new java.awt.Color(0, 102, 255));
-        homeBtn1.setFont(new java.awt.Font("Cantarell", 1, 24)); // NOI18N
+        homeBtn1.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
         homeBtn1.setForeground(new java.awt.Color(255, 255, 255));
         homeBtn1.setText("HOME");
         homeBtn1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 3, true));
@@ -80,16 +81,17 @@ public class DeleteService extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(homeBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 785, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(vehicleNumberField1, javax.swing.GroupLayout.PREFERRED_SIZE, 486, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(177, 177, 177))))
+                        .addGap(177, 177, 177))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 785, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(447, 447, 447)
                 .addComponent(viewStatusBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
