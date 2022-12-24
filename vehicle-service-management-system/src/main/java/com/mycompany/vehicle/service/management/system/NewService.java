@@ -4,14 +4,22 @@
  */
 package com.mycompany.vehicle.service.management.system;
 
+import java.awt.Color;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -58,15 +66,21 @@ public class NewService extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        vechicleNumberField1 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        vechicleNumberField2 = new javax.swing.JTextField();
-        vechicleNumberField3 = new javax.swing.JTextField();
+        serviceHeadIdField = new javax.swing.JTextField();
+        serviceTypeField = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        vechicleNumberField4 = new javax.swing.JTextField();
-        vechicleNumberField5 = new javax.swing.JTextField();
+        customerNameField = new javax.swing.JTextField();
         submitBtn = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        vehicleTypeField = new javax.swing.JComboBox<>();
+        vechicleNumberField = new javax.swing.JTextField();
+        vehicleModelField = new javax.swing.JTextField();
+        customerNumberField = new javax.swing.JTextField();
+        messageField = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        dateField = new javax.swing.JTextField();
+        clearBtn = new javax.swing.JButton();
 
         jMenu1.setText("jMenu1");
 
@@ -104,42 +118,25 @@ public class NewService extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Liberation Mono", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(51, 0, 102));
-        jLabel4.setText("VEHICLE TYPE :");
+        jLabel4.setText("VEHICLE MODEL :");
 
         jLabel5.setFont(new java.awt.Font("Liberation Mono", 1, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(51, 0, 102));
         jLabel5.setText("SERVICE TYPE :");
 
-        vechicleNumberField1.setFont(new java.awt.Font("Liberation Mono", 0, 24)); // NOI18N
-        vechicleNumberField1.setForeground(new java.awt.Color(51, 0, 102));
-        vechicleNumberField1.addActionListener(new java.awt.event.ActionListener() {
+        serviceHeadIdField.setFont(new java.awt.Font("Liberation Mono", 0, 24)); // NOI18N
+        serviceHeadIdField.setForeground(new java.awt.Color(51, 0, 102));
+        serviceHeadIdField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                vechicleNumberField1ActionPerformed(evt);
+                serviceHeadIdFieldActionPerformed(evt);
             }
         });
 
-        jComboBox1.setFont(new java.awt.Font("Liberation Mono", 0, 24)); // NOI18N
-        jComboBox1.setForeground(new java.awt.Color(51, 0, 102));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "car", "motorcycle", "truck", "bus", " " }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        serviceTypeField.setFont(new java.awt.Font("Liberation Mono", 0, 24)); // NOI18N
+        serviceTypeField.setForeground(new java.awt.Color(51, 0, 102));
+        serviceTypeField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
-
-        vechicleNumberField2.setFont(new java.awt.Font("Liberation Mono", 0, 24)); // NOI18N
-        vechicleNumberField2.setForeground(new java.awt.Color(51, 0, 102));
-        vechicleNumberField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                vechicleNumberField2ActionPerformed(evt);
-            }
-        });
-
-        vechicleNumberField3.setFont(new java.awt.Font("Liberation Mono", 0, 24)); // NOI18N
-        vechicleNumberField3.setForeground(new java.awt.Color(51, 0, 102));
-        vechicleNumberField3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                vechicleNumberField3ActionPerformed(evt);
+                serviceTypeFieldActionPerformed(evt);
             }
         });
 
@@ -151,19 +148,11 @@ public class NewService extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(51, 0, 102));
         jLabel7.setText("CUSTOMER NAME :");
 
-        vechicleNumberField4.setFont(new java.awt.Font("Liberation Mono", 0, 24)); // NOI18N
-        vechicleNumberField4.setForeground(new java.awt.Color(51, 0, 102));
-        vechicleNumberField4.addActionListener(new java.awt.event.ActionListener() {
+        customerNameField.setFont(new java.awt.Font("Liberation Mono", 0, 24)); // NOI18N
+        customerNameField.setForeground(new java.awt.Color(51, 0, 102));
+        customerNameField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                vechicleNumberField4ActionPerformed(evt);
-            }
-        });
-
-        vechicleNumberField5.setFont(new java.awt.Font("Liberation Mono", 0, 24)); // NOI18N
-        vechicleNumberField5.setForeground(new java.awt.Color(51, 0, 102));
-        vechicleNumberField5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                vechicleNumberField5ActionPerformed(evt);
+                customerNameFieldActionPerformed(evt);
             }
         });
 
@@ -179,50 +168,127 @@ public class NewService extends javax.swing.JFrame {
             }
         });
 
+        jLabel8.setFont(new java.awt.Font("Liberation Mono", 1, 24)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel8.setText("VEHICLE TYPE :");
+
+        vehicleTypeField.setFont(new java.awt.Font("Liberation Mono", 0, 24)); // NOI18N
+        vehicleTypeField.setForeground(new java.awt.Color(51, 0, 102));
+        vehicleTypeField.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "car", "motorcycle", "truck", "bus", " " }));
+        vehicleTypeField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vehicleTypeFieldActionPerformed(evt);
+            }
+        });
+
+        vechicleNumberField.setFont(new java.awt.Font("Liberation Mono", 0, 24)); // NOI18N
+        vechicleNumberField.setForeground(new java.awt.Color(51, 0, 102));
+        vechicleNumberField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vechicleNumberFieldActionPerformed(evt);
+            }
+        });
+
+        vehicleModelField.setFont(new java.awt.Font("Liberation Mono", 0, 24)); // NOI18N
+        vehicleModelField.setForeground(new java.awt.Color(51, 0, 102));
+        vehicleModelField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vehicleModelFieldActionPerformed(evt);
+            }
+        });
+
+        customerNumberField.setFont(new java.awt.Font("Liberation Mono", 0, 24)); // NOI18N
+        customerNumberField.setForeground(new java.awt.Color(51, 0, 102));
+        customerNumberField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                customerNumberFieldActionPerformed(evt);
+            }
+        });
+
+        messageField.setFont(new java.awt.Font("Monospaced", 3, 24)); // NOI18N
+        messageField.setForeground(new java.awt.Color(255, 0, 0));
+
+        jLabel9.setFont(new java.awt.Font("Liberation Mono", 1, 24)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(51, 0, 102));
+        jLabel9.setText("SERVICE DATE :");
+
+        dateField.setFont(new java.awt.Font("Liberation Mono", 0, 24)); // NOI18N
+        dateField.setForeground(new java.awt.Color(51, 0, 102));
+        dateField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dateFieldActionPerformed(evt);
+            }
+        });
+
+        clearBtn.setBackground(new java.awt.Color(49, 10, 49));
+        clearBtn.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
+        clearBtn.setForeground(new java.awt.Color(204, 255, 255));
+        clearBtn.setText("CLEAR");
+        clearBtn.setToolTipText("");
+        clearBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
+        clearBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(142, 142, 142)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(54, 54, 54)))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(vechicleNumberField3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(vechicleNumberField2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(vechicleNumberField4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(vechicleNumberField1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(vechicleNumberField5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(homeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(137, 137, 137)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 785, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(325, 325, 325)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(33, 33, 33)
-                                .addComponent(homeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 785, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(142, 142, 142)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(251, 251, 251))
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(159, 159, 159)
+                                        .addComponent(vechicleNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(161, 161, 161)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(vehicleModelField, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(vehicleTypeField, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(serviceTypeField, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(68, 68, 68)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(customerNameField, javax.swing.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)
+                                            .addComponent(serviceHeadIdField)
+                                            .addComponent(customerNumberField))
+                                        .addComponent(dateField, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(0, 252, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(447, 447, 447)
+                .addGap(360, 360, 360)
                 .addComponent(submitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(587, Short.MAX_VALUE))
+                .addGap(176, 176, 176)
+                .addComponent(clearBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(messageField, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(490, 490, 490))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -232,84 +298,128 @@ public class NewService extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addComponent(homeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(30, 30, 30)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(vechicleNumberField1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(vechicleNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(vehicleModelField, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(vehicleTypeField, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(serviceTypeField, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(serviceHeadIdField, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32)))
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(customerNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(customerNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(vechicleNumberField3, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(31, 31, 31)))
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dateField, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(vechicleNumberField2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(vechicleNumberField4, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(vechicleNumberField5, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(47, 47, 47)
-                .addComponent(submitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addComponent(messageField, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(submitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(clearBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void vechicleNumberField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vechicleNumberField4ActionPerformed
+    private void customerNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerNameFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_vechicleNumberField4ActionPerformed
+    }//GEN-LAST:event_customerNameFieldActionPerformed
 
-    private void vechicleNumberField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vechicleNumberField3ActionPerformed
+    private void serviceTypeFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_serviceTypeFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_vechicleNumberField3ActionPerformed
+    }//GEN-LAST:event_serviceTypeFieldActionPerformed
 
-    private void vechicleNumberField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vechicleNumberField2ActionPerformed
+    private void serviceHeadIdFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_serviceHeadIdFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_vechicleNumberField2ActionPerformed
-
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
-
-    private void vechicleNumberField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vechicleNumberField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_vechicleNumberField1ActionPerformed
-
-    private void vechicleNumberField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vechicleNumberField5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_vechicleNumberField5ActionPerformed
+    }//GEN-LAST:event_serviceHeadIdFieldActionPerformed
 
     private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
         // TODO add your handling code here:
         System.out.println("Submit button pressed");
+    
+        final String vehicleNumber = vechicleNumberField.getText();
+        final String vehicleModel = vehicleModelField.getText();
+        final String vehicleType = vehicleTypeField.getSelectedItem().toString();
+        final String serviceType = serviceTypeField.getText();
+        final String serviceHeadId = serviceHeadIdField.getText();
+        final String customerName = customerNameField.getText();
+        final String customerNumber = customerNumberField.getText();
+        final String serviceDate = dateField.getText();
         
-        new Home().setVisible(true);
-        this.setVisible(false);
+        if (vehicleNumber.isEmpty() | vehicleModel.isEmpty() | vehicleType.isEmpty() | serviceType.isEmpty() | serviceHeadId.isEmpty() | customerName.isEmpty() | customerNumber.isEmpty()){
+            messageField.setText("Please fill all the values");
+        }
+        else{
+            try {
+                pst = con.prepareStatement("INSERT INTO services values((?),(?),(?),(?),(?),(?),(?),(?),(?))");
+                pst.setString(1, vehicleNumber);
+                pst.setString(2, vehicleType);
+                pst.setString(3, vehicleModel);
+                pst.setString(4, serviceType);
+                pst.setString(5, serviceHeadId);
+                pst.setString(6, customerName);
+                pst.setString(7, customerNumber);
+                pst.setString(8, serviceDate);
+                pst.setString(9, "Booked");
+                pst.executeUpdate();
+                messageField.setForeground(Color.GREEN);
+                messageField.setText("Successfully added record");
+                
+//                new Home().setVisible(true);
+//                this.setVisible(false);
+            }
+            catch (SQLIntegrityConstraintViolationException ex) {
+                messageField.setForeground(Color.red);
+                messageField.setText("Data already exists in database");
+                Logger.getLogger(NewService.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            catch (SQLException ex) {
+                messageField.setForeground(Color.red);
+                messageField.setText("Could not add record to the database");
+                Logger.getLogger(NewService.class.getName()).log(Level.SEVERE, null, ex);
+            } 
+        }
+        
     }//GEN-LAST:event_submitBtnActionPerformed
 
     private void homeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBtnActionPerformed
@@ -317,7 +427,40 @@ public class NewService extends javax.swing.JFrame {
               System.out.println("`Home button clicked");
               new Home().setVisible(true);
               this.setVisible(false);
+              
     }//GEN-LAST:event_homeBtnActionPerformed
+
+    private void vehicleTypeFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vehicleTypeFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_vehicleTypeFieldActionPerformed
+
+    private void vechicleNumberFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vechicleNumberFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_vechicleNumberFieldActionPerformed
+
+    private void vehicleModelFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vehicleModelFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_vehicleModelFieldActionPerformed
+
+    private void customerNumberFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerNumberFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_customerNumberFieldActionPerformed
+
+    private void dateFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dateFieldActionPerformed
+
+    private void clearBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearBtnActionPerformed
+        // TODO add your handling code here:
+     messageField.setText("");
+     serviceHeadIdField.setText("");
+     serviceTypeField.setText("");
+     vechicleNumberField.setText("");
+     vehicleModelField.setText("");
+     customerNameField.setText("");
+     customerNumberField.setText("");
+     dateField.setText("");
+    }//GEN-LAST:event_clearBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -355,8 +498,11 @@ public class NewService extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton clearBtn;
+    private javax.swing.JTextField customerNameField;
+    private javax.swing.JTextField customerNumberField;
+    private javax.swing.JTextField dateField;
     private javax.swing.JButton homeBtn;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -364,14 +510,21 @@ public class NewService extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel messageField;
+    private javax.swing.JTextField serviceHeadIdField;
+    private javax.swing.JTextField serviceTypeField;
     private javax.swing.JButton submitBtn;
-    private javax.swing.JTextField vechicleNumberField1;
-    private javax.swing.JTextField vechicleNumberField2;
-    private javax.swing.JTextField vechicleNumberField3;
-    private javax.swing.JTextField vechicleNumberField4;
-    private javax.swing.JTextField vechicleNumberField5;
+    private javax.swing.JTextField vechicleNumberField;
+    private javax.swing.JTextField vehicleModelField;
+    private javax.swing.JComboBox<String> vehicleTypeField;
     // End of variables declaration//GEN-END:variables
+
+    private void SimpleDateFormat(String ddMMyyyyHHmmss) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
