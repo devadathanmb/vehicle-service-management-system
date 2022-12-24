@@ -4,6 +4,15 @@
  */
 package com.mycompany.vehicle.service.management.system;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author devadathan
@@ -13,8 +22,21 @@ public class ViewStatus extends javax.swing.JFrame {
     /**
      * Creates new form ViewStatus
      */
+     Connection con = null;
+    Statement st = null;
+    PreparedStatement pst = null;  
+    ResultSet rs = null;
     public ViewStatus() {
-        initComponents();
+         try {
+             initComponents();
+             final String URL = "jdbc:mysql://localhost:3306/serviceDB";
+             final String username = "sqluser";
+             final String password = "";
+             Class.forName("com.mysql.cj.jdbc.Driver");
+             con = DriverManager.getConnection(URL, username, password);
+         } catch (ClassNotFoundException | SQLException ex) {
+             Logger.getLogger(ViewStatus.class.getName()).log(Level.SEVERE, null, ex);
+         }
     }
 
     /**
@@ -32,6 +54,8 @@ public class ViewStatus extends javax.swing.JFrame {
         vehicleNumberField = new javax.swing.JTextField();
         viewStatusBtn = new javax.swing.JButton();
         homeBtn = new javax.swing.JButton();
+        messageField = new javax.swing.JLabel();
+        statusField = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Vehicle Service Management System");
@@ -74,6 +98,14 @@ public class ViewStatus extends javax.swing.JFrame {
             }
         });
 
+        messageField.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
+        messageField.setForeground(new java.awt.Color(51, 0, 51));
+        messageField.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        statusField.setFont(new java.awt.Font("Monospaced", 3, 24)); // NOI18N
+        statusField.setForeground(new java.awt.Color(51, 0, 153));
+        statusField.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -83,19 +115,26 @@ public class ViewStatus extends javax.swing.JFrame {
                 .addComponent(homeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 126, Short.MAX_VALUE)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(vehicleNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, 486, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(177, 177, 177))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(67, 67, 67)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 785, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 785, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(79, 79, 79)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(messageField, javax.swing.GroupLayout.PREFERRED_SIZE, 718, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(vehicleNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, 486, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(218, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(447, 447, 447)
+                .addGap(440, 440, 440)
                 .addComponent(viewStatusBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(154, 154, 154)
+                    .addComponent(statusField, javax.swing.GroupLayout.PREFERRED_SIZE, 970, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(155, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -107,16 +146,20 @@ public class ViewStatus extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(127, 127, 127)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(149, 149, 149)
-                        .addComponent(vehicleNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(84, 84, 84)
+                .addGap(73, 73, 73)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(vehicleNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 148, Short.MAX_VALUE)
+                .addComponent(messageField, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43)
                 .addComponent(viewStatusBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(187, Short.MAX_VALUE))
+                .addGap(76, 76, 76))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(315, 315, 315)
+                    .addComponent(statusField, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(315, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -139,8 +182,46 @@ public class ViewStatus extends javax.swing.JFrame {
     private void viewStatusBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewStatusBtnActionPerformed
         // TODO add your handling code here:
         System.out.println("View status button pressed");
-        new Status().setVisible(true);
-        this.setVisible(false);
+        final String vehicleNumber = vehicleNumberField.getText();
+        if (vehicleNumber.isEmpty()){
+            messageField.setText("Please enter the vehicle number.");
+            statusField.setText("");
+
+        }
+        else{
+            try {
+                pst = con.prepareStatement("SELECT service_status, vehicleType, vehicle_model, service_head_id FROM services WHERE vehicle_number = (?)");
+                pst.setString(1, vehicleNumber);
+                rs = pst.executeQuery();
+                
+                boolean isEmpty = true;
+                while(rs.next()){
+                    isEmpty = false;
+                    final String status = rs.getString("service_status");
+                    final String service_head_id = rs.getString("service_head_id");
+                    final String vehicleType = rs.getString("vehicleType");
+                    final String vehicle_model = rs.getString("vehicle_model");
+                    String statusMessage = "";
+                    if ("pending".equals(status)){
+                        statusMessage = vehicle_model + " " + vehicleType + " is yet to be serviced.";
+                    } else if ("done".equals(status)){
+                       statusMessage = vehicle_model + " " + vehicleType + " has been serviced.";
+                    } else if ("ongoing".equals(status)){
+                       statusMessage = vehicle_model + " " + vehicleType + " is being serviced.";
+                    }
+                    statusField.setText(statusMessage);
+                    messageField.setText("");
+                }
+                if (!isEmpty){
+                   messageField.setText("Could not find details of vehicle " + vehicleNumber);
+                   statusField.setText("");
+
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(ViewStatus.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+       
     }//GEN-LAST:event_viewStatusBtnActionPerformed
 
     private void homeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBtnActionPerformed
@@ -190,6 +271,8 @@ public class ViewStatus extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel messageField;
+    private javax.swing.JLabel statusField;
     private javax.swing.JTextField vehicleNumberField;
     private javax.swing.JButton viewStatusBtn;
     // End of variables declaration//GEN-END:variables
