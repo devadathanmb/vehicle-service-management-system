@@ -188,7 +188,7 @@ public class DeleteService extends javax.swing.JFrame {
              }
              else {
                 messageField.setForeground(Color.decode("#130a40"));
-                messageField.setText("Successfully delete service with service id :  " + serviceId);
+                messageField.setText("Successfully deleted service with service id :  " + serviceId);
                 serviceIdField.setText("");
              }
          } catch (SQLException ex) {
