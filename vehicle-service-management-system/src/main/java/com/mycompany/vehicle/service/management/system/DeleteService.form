@@ -199,7 +199,7 @@
         <Component class="javax.swing.JLabel" name="messageField">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Monospaced" size="24" style="3"/>
+              <Font name="Monospaced" size="24" style="2"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="99" green="0" red="33" type="rgb"/>

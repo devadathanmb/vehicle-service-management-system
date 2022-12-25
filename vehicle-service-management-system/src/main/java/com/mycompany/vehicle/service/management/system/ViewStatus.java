@@ -212,7 +212,7 @@ public class ViewStatus extends javax.swing.JFrame {
                     statusField.setText(statusMessage);
                     messageField.setText("");
                 }
-                if (!isEmpty){
+                if (isEmpty){
                    messageField.setText("Could not find details of vehicle " + vehicleNumber);
                    statusField.setText("");
 

@@ -57,7 +57,6 @@ public class EditService extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         vehicleTypeField = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
-        serviceTypeField = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         serviceHeadIdField = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
@@ -70,13 +69,14 @@ public class EditService extends javax.swing.JFrame {
         vehicleModelField = new javax.swing.JTextField();
         fetchBtn = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
-        serviceStatusField = new javax.swing.JTextField();
         messageField = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        serviceDateField1 = new javax.swing.JTextField();
+        serviceDateField = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         vehicleNumberField = new javax.swing.JTextField();
+        serviceStatusField = new javax.swing.JComboBox<>();
+        serviceTypeField = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Vehicle Management Service System");
@@ -103,7 +103,7 @@ public class EditService extends javax.swing.JFrame {
 
         vehicleTypeField.setFont(new java.awt.Font("Liberation Mono", 1, 24)); // NOI18N
         vehicleTypeField.setForeground(new java.awt.Color(51, 0, 102));
-        vehicleTypeField.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "car", "motorcycle", "truck", "bus" }));
+        vehicleTypeField.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Car", "Motorcycle", "Truck", "Bus" }));
         vehicleTypeField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 vehicleTypeFieldActionPerformed(evt);
@@ -113,14 +113,6 @@ public class EditService extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Liberation Mono", 1, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(51, 0, 102));
         jLabel5.setText("SERVICE TYPE :");
-
-        serviceTypeField.setFont(new java.awt.Font("Liberation Mono", 1, 24)); // NOI18N
-        serviceTypeField.setForeground(new java.awt.Color(51, 0, 102));
-        serviceTypeField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                serviceTypeFieldActionPerformed(evt);
-            }
-        });
 
         jLabel6.setFont(new java.awt.Font("Liberation Mono", 1, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(51, 0, 102));
@@ -209,15 +201,7 @@ public class EditService extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(51, 0, 102));
         jLabel9.setText("SERVICE STATUS : ");
 
-        serviceStatusField.setFont(new java.awt.Font("Liberation Mono", 1, 24)); // NOI18N
-        serviceStatusField.setForeground(new java.awt.Color(51, 0, 102));
-        serviceStatusField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                serviceStatusFieldActionPerformed(evt);
-            }
-        });
-
-        messageField.setFont(new java.awt.Font("Monospaced", 3, 24)); // NOI18N
+        messageField.setFont(new java.awt.Font("Monospaced", 2, 24)); // NOI18N
         messageField.setForeground(new java.awt.Color(255, 51, 0));
         messageField.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
@@ -225,11 +209,11 @@ public class EditService extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(51, 0, 102));
         jLabel10.setText("SERVICE DATE : ");
 
-        serviceDateField1.setFont(new java.awt.Font("Liberation Mono", 1, 24)); // NOI18N
-        serviceDateField1.setForeground(new java.awt.Color(51, 0, 102));
-        serviceDateField1.addActionListener(new java.awt.event.ActionListener() {
+        serviceDateField.setFont(new java.awt.Font("Liberation Mono", 1, 24)); // NOI18N
+        serviceDateField.setForeground(new java.awt.Color(51, 0, 102));
+        serviceDateField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                serviceDateField1ActionPerformed(evt);
+                serviceDateFieldActionPerformed(evt);
             }
         });
 
@@ -246,6 +230,24 @@ public class EditService extends javax.swing.JFrame {
         vehicleNumberField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 vehicleNumberFieldActionPerformed(evt);
+            }
+        });
+
+        serviceStatusField.setFont(new java.awt.Font("Liberation Mono", 1, 24)); // NOI18N
+        serviceStatusField.setForeground(new java.awt.Color(51, 0, 102));
+        serviceStatusField.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "pending", "ongoing", "done" }));
+        serviceStatusField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                serviceStatusFieldActionPerformed(evt);
+            }
+        });
+
+        serviceTypeField.setFont(new java.awt.Font("Liberation Mono", 1, 24)); // NOI18N
+        serviceTypeField.setForeground(new java.awt.Color(51, 0, 102));
+        serviceTypeField.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Full Service", "Oil Change", "Vehicle Tuning", "Full Body Wash" }));
+        serviceTypeField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                serviceTypeFieldActionPerformed(evt);
             }
         });
 
@@ -276,8 +278,8 @@ public class EditService extends javax.swing.JFrame {
                                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(serviceTypeField, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(vehicleTypeField, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(vehicleTypeField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(serviceTypeField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -290,15 +292,15 @@ public class EditService extends javax.swing.JFrame {
                                     .addComponent(customerNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(serviceHeadIdField, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(customerContactNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(serviceDateField1, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(serviceStatusField, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(vehicleNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(serviceDateField, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(vehicleNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(serviceStatusField, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(1, 1, 1)))
                         .addGap(75, 75, 75)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(fetchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(editBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(0, 468, Short.MAX_VALUE))
+                .addGap(0, 104, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -333,9 +335,9 @@ public class EditService extends javax.swing.JFrame {
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(vehicleTypeField, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(31, 31, 31)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(serviceTypeField, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(serviceTypeField, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(fetchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -359,11 +361,11 @@ public class EditService extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(serviceDateField1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(serviceDateField, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(serviceStatusField, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(serviceStatusField, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(vehicleNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -378,8 +380,8 @@ public class EditService extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -396,13 +398,9 @@ public class EditService extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_vehicleNumberFieldActionPerformed
 
-    private void serviceDateField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_serviceDateField1ActionPerformed
+    private void serviceDateFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_serviceDateFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_serviceDateField1ActionPerformed
-
-    private void serviceStatusFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_serviceStatusFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_serviceStatusFieldActionPerformed
+    }//GEN-LAST:event_serviceDateFieldActionPerformed
 
     private void fetchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fetchBtnActionPerformed
         try {
@@ -418,19 +416,18 @@ public class EditService extends javax.swing.JFrame {
                 serviceIdField.setText(rs.getString("service_id"));
                 vehicleTypeField.setSelectedItem(rs.getString("vehicleType"));
                 vehicleModelField.setText(rs.getString("vehicle_model"));
-                serviceTypeField.setText(rs.getString("service_type"));
+                serviceTypeField.setSelectedItem(rs.getString("service_type"));
                 customerNameField.setText(rs.getString("customer_name"));
                 customerContactNumberField.setText(rs.getString("customer_number"));
-                serviceStatusField.setText(rs.getString("service_date"));
+                serviceDateField.setText(rs.getString("service_date"));
                 serviceHeadIdField.setText(rs.getString("service_head_id"));
-                serviceStatusField.setText(rs.getString("service_status"));
-                serviceDateField1.setText(rs.getString("service_date"));
+                serviceStatusField.setSelectedItem(rs.getString("service_status"));
                 isEmpty = false;
                 messageField.setText("");
             }
 
             if (isEmpty){
-                messageField.setForeground(Color.RED);
+                messageField.setForeground(Color.decode("#1a0105"));
                 messageField.setText("Could not find any data for that service id.");
             }
         } catch (SQLException ex) {
@@ -450,6 +447,21 @@ public class EditService extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_homeBtnActionPerformed
 
+    // Method to clear fields
+    protected void clearFields(){
+         messageField.setText("");
+        serviceHeadIdField.setText("");
+        vehicleNumberField.setText("");
+        vehicleModelField.setText("");
+         customerNameField.setText("");
+        customerContactNumberField.setText("");
+        serviceDateField.setText("");
+         serviceTypeField.setSelectedIndex(0);
+         vehicleTypeField.setSelectedIndex(0);
+
+    }
+    
+    
     private void editBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtnActionPerformed
         // TODO add your handling code here:
         System.out.println("Submit button pressed");
@@ -458,15 +470,15 @@ public class EditService extends javax.swing.JFrame {
         final String vehicleNumber = vehicleNumberField.getText();
         final String vehicleModel = vehicleModelField.getText();
         final String vehicleType = vehicleTypeField.getSelectedItem().toString();
-        final String serviceType = serviceTypeField.getText();
+        final String serviceType = serviceTypeField.getSelectedItem().toString();
         final String serviceHeadId = serviceHeadIdField.getText();
         final String customerName = customerNameField.getText();
         final String customerNumber = customerContactNumberField.getText();
-        final String serviceDate = serviceStatusField.getText();
-        final String serviceStatus = serviceStatusField.getText();
+        final String serviceDate = serviceDateField.getText();
+        final String serviceStatus = serviceStatusField.getSelectedItem().toString();
 
         if (vehicleNumber.isEmpty() | vehicleModel.isEmpty() | vehicleType.isEmpty() | serviceType.isEmpty() | serviceHeadId.isEmpty() | customerName.isEmpty() | customerNumber.isEmpty()){
-            messageField.setForeground(Color.red);
+            messageField.setForeground(Color.decode("#1a0105"));
             messageField.setText("Please fill all the values");
         }
         else{
@@ -483,17 +495,18 @@ public class EditService extends javax.swing.JFrame {
                 pst.setString(9, serviceStatus);
                 pst.setString(10, serviceId);
                 pst.executeUpdate();
-                messageField.setForeground(Color.GREEN);
+                clearFields();
+                messageField.setForeground(Color.decode("#130a40"));
                 messageField.setText("Successfully updated record");
 
             }
             catch (SQLIntegrityConstraintViolationException ex) {
-                messageField.setForeground(Color.red);
+                messageField.setForeground(Color.decode("#1a0105"));
                 messageField.setText("Cannot update service id");
                 Logger.getLogger(NewService.class.getName()).log(Level.SEVERE, null, ex);
             }
             catch (SQLException ex) {
-                messageField.setForeground(Color.red);
+                messageField.setForeground(Color.decode("#1a0105"));
                 messageField.setText("ERROR : Could not edit the record.");
                 Logger.getLogger(NewService.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -512,10 +525,6 @@ public class EditService extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_serviceHeadIdFieldActionPerformed
 
-    private void serviceTypeFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_serviceTypeFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_serviceTypeFieldActionPerformed
-
     private void vehicleTypeFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vehicleTypeFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_vehicleTypeFieldActionPerformed
@@ -523,6 +532,14 @@ public class EditService extends javax.swing.JFrame {
     private void serviceIdFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_serviceIdFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_serviceIdFieldActionPerformed
+
+    private void serviceStatusFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_serviceStatusFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_serviceStatusFieldActionPerformed
+
+    private void serviceTypeFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_serviceTypeFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_serviceTypeFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -578,11 +595,11 @@ public class EditService extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel messageField;
-    private javax.swing.JTextField serviceDateField1;
+    private javax.swing.JTextField serviceDateField;
     private javax.swing.JTextField serviceHeadIdField;
     private javax.swing.JTextField serviceIdField;
-    private javax.swing.JTextField serviceStatusField;
-    private javax.swing.JTextField serviceTypeField;
+    private javax.swing.JComboBox<String> serviceStatusField;
+    private javax.swing.JComboBox<String> serviceTypeField;
     private javax.swing.JTextField vehicleModelField;
     private javax.swing.JTextField vehicleNumberField;
     private javax.swing.JComboBox<String> vehicleTypeField;

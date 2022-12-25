@@ -98,7 +98,7 @@ public class DeleteService extends javax.swing.JFrame {
             }
         });
 
-        messageField.setFont(new java.awt.Font("Monospaced", 3, 24)); // NOI18N
+        messageField.setFont(new java.awt.Font("Monospaced", 2, 24)); // NOI18N
         messageField.setForeground(new java.awt.Color(51, 0, 153));
         messageField.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
@@ -183,11 +183,11 @@ public class DeleteService extends javax.swing.JFrame {
              pst.setString(1, serviceId);
              int result = pst.executeUpdate();
              if (result == 0){
-                 messageField.setForeground(Color.RED);
+                 messageField.setForeground(Color.decode("#1a0105"));
                  messageField.setText("Cannot find service with service id : " + serviceId);
              }
              else {
-                messageField.setForeground(Color.GREEN);
+                messageField.setForeground(Color.decode("#130a40"));
                 messageField.setText("Successfully delete service with service id :  " + serviceId);
                 serviceIdField.setText("");
              }
