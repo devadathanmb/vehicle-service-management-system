@@ -312,7 +312,6 @@ public class Details extends javax.swing.JFrame {
         // TODO add your handling code here:
         new Home().setVisible(true);
         this.setVisible(false);
-        con.close();
     }//GEN-LAST:event_homeBtnActionPerformed
 
     protected void clearFields(){
