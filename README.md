@@ -15,7 +15,7 @@ To run this project make sure you have the following tools installed and configu
 
 ## Installation
 
-1. Download the `jar file` and the `sql file` from [here](https://github.com/devadathanmb/vehicle-service-management-system/releases/tag/v1.0)  
+1. Download the `jar file` and the `sql file` from [here](https://github.com/devadathanmb/vehicle-service-management-system/releases/)  
 
 2. Make sure you have created a user named `sqluser` with no password (ie, empty string as password) in `mysql`.
 
