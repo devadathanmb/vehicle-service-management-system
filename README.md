@@ -9,8 +9,8 @@ This project was made part of the `KTU Database Management Systems Lab - (CSL333
 
 To run this project make sure you have the following tools installed and configured :
 
--- (JDK 19)[https://www.oracle.com/in/java/technologies/downloads/]
--- (Mysql)[https://www.mysql.com/downloads/]
+-- [JDK 19](https://www.oracle.com/in/java/technologies/downloads/)  
+-- [Mysql](https://www.mysql.com/downloads/)  
 
 # Installation
 
@@ -38,9 +38,9 @@ Rishi Raj K
 Eldose Joy
 
 # Tools used :
--- (MYSQL Community Server)[https://www.mysql.com/] 
--- (Apache Netbeans 16)[https://netbeans.apache.org/]
--- (JDK 19)[https://www.oracle.com/java/technologies/javase/jdk19-archive-downloads.html]
--- (Mysql-Java Connectivity Driver)[https://dev.mysql.com/downloads/connector/j/]
+-- [MYSQL Community Server](https://www.mysql.com/)  
+-- [Apache Netbeans 16](https://netbeans.apache.org/)  
+-- [JDK 19](https://www.oracle.com/java/technologies/javase/jdk19-archive-downloads.html)  
+-- [Mysql-Java Connectivity Driver](https://dev.mysql.com/downloads/connector/j/)  
 
 
