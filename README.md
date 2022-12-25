@@ -38,9 +38,9 @@ Rishi Raj K
 Eldose Joy  
 
 # Tools used :
--- [MYSQL Community Server](https://www.mysql.com/)  
--- [Apache Netbeans 16](https://netbeans.apache.org/)  
--- [JDK 19](https://www.oracle.com/java/technologies/javase/jdk19-archive-downloads.html)  
--- [Mysql-Java Connectivity Driver](https://dev.mysql.com/downloads/connector/j/)  
+* [MYSQL Community Server](https://www.mysql.com/)  
+* [Apache Netbeans 16](https://netbeans.apache.org/)  
+* [JDK 19](https://www.oracle.com/java/technologies/javase/jdk19-archive-downloads.html)  
+* [Mysql-Java Connectivity Driver](https://dev.mysql.com/downloads/connector/j/)  
 
 
