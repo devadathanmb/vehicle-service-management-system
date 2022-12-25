@@ -445,7 +445,6 @@ public class EditService extends javax.swing.JFrame {
 
     private void homeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBtnActionPerformed
         // TODO add your handling code here:
-        System.out.println("`Home button clicked");
         new Home().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_homeBtnActionPerformed
@@ -467,7 +466,6 @@ public class EditService extends javax.swing.JFrame {
     
     private void editBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBtnActionPerformed
         // TODO add your handling code here:
-        System.out.println("Submit button pressed");
 
         final String serviceId = serviceIdField.getText();
         final String vehicleNumber = vehicleNumberField.getText();

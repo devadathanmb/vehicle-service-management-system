@@ -203,14 +203,12 @@ public class Home extends javax.swing.JFrame {
 
     private void viewServiceLogBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewServiceLogBtnActionPerformed
         // TODO add your handling code here:
-        System.out.println("View Service log button pressed");
         new ServiceLog().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_viewServiceLogBtnActionPerformed
 
     private void editServiceBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editServiceBtnActionPerformed
         // TODO add your handling code here:
-        System.out.println("edit service button pressed");
         new EditService().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_editServiceBtnActionPerformed
@@ -223,14 +221,12 @@ public class Home extends javax.swing.JFrame {
 
     private void newServiceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newServiceButtonActionPerformed
         // TODO add your handling code here:
-        System.out.println("new Service button pressed");
         new NewService().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_newServiceButtonActionPerformed
 
     private void deleteServiceBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteServiceBtnActionPerformed
         // TODO add your handling code here:
-        System.out.println("Delete service button pressed");
         new DeleteService().setVisible(true);
         this.setVisible(false);
        

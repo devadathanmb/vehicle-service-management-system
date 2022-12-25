@@ -181,7 +181,6 @@ public class ViewStatus extends javax.swing.JFrame {
 
     private void viewStatusBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewStatusBtnActionPerformed
         // TODO add your handling code here:
-        System.out.println("View status button pressed");
         final String vehicleNumber = vehicleNumberField.getText();
         if (vehicleNumber.isEmpty()){
             messageField.setText("Please enter the vehicle number.");
@@ -226,7 +225,6 @@ public class ViewStatus extends javax.swing.JFrame {
 
     private void homeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBtnActionPerformed
         // TODO add your handling code here:
-        System.out.println("`Home button clicked");
         new Home().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_homeBtnActionPerformed

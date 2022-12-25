@@ -173,7 +173,6 @@ public class DeleteService extends javax.swing.JFrame {
     private void deleteServiceBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteServiceBtnActionPerformed
          try {
              // TODO add your handling code here:
-             System.out.println("View status button pressed");
              final String serviceId = serviceIdField.getText();
              
              if (serviceId.isEmpty()){
@@ -199,9 +198,9 @@ public class DeleteService extends javax.swing.JFrame {
 
     private void homeBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBtn1ActionPerformed
         // TODO add your handling code here:
-        System.out.println("`Home button clicked");
         new Home().setVisible(true);
         this.setVisible(false);
+        con.close();
     }//GEN-LAST:event_homeBtn1ActionPerformed
 
     /**
