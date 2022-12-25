@@ -9,8 +9,8 @@ This project was made part of the `KTU Database Management Systems Lab - (CSL333
 
 To run this project make sure you have the following tools installed and configured :
 
--- [JDK 19](https://www.oracle.com/in/java/technologies/downloads/)  
--- [Mysql](https://www.mysql.com/downloads/)  
+* [JDK 19](https://www.oracle.com/in/java/technologies/downloads/)  
+* [Mysql](https://www.mysql.com/downloads/)  
 
 # Installation
 
@@ -32,10 +32,10 @@ java -jar <path to the .jar file> # Provide the path to the downloaded jar file 
 ```
 
 # Contributors :
-Devadathan M B
-Asif J
-Rishi Raj K
-Eldose Joy
+Devadathan M B  
+Asif J  
+Rishi Raj K  
+Eldose Joy  
 
 # Tools used :
 -- [MYSQL Community Server](https://www.mysql.com/)  
