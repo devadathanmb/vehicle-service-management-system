@@ -30,11 +30,12 @@ public class Home extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         viewServiceLogBtn = new javax.swing.JButton();
         editServiceBtn = new javax.swing.JButton();
-        serviceStatusBtn = new javax.swing.JButton();
+        getDetailsBtn = new javax.swing.JButton();
         newServiceButton = new javax.swing.JButton();
         deleteServiceBtn = new javax.swing.JButton();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 32767));
         filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 0));
+        serviceStatusBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Vehicle Service Management System");
@@ -71,15 +72,15 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
-        serviceStatusBtn.setBackground(new java.awt.Color(49, 10, 49));
-        serviceStatusBtn.setFont(new java.awt.Font("Liberation Mono", 1, 24)); // NOI18N
-        serviceStatusBtn.setForeground(new java.awt.Color(204, 255, 255));
-        serviceStatusBtn.setText("SERVICE STATUS");
-        serviceStatusBtn.setToolTipText("");
-        serviceStatusBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
-        serviceStatusBtn.addActionListener(new java.awt.event.ActionListener() {
+        getDetailsBtn.setBackground(new java.awt.Color(49, 10, 49));
+        getDetailsBtn.setFont(new java.awt.Font("Liberation Mono", 1, 24)); // NOI18N
+        getDetailsBtn.setForeground(new java.awt.Color(204, 255, 255));
+        getDetailsBtn.setText("GET DETAILS");
+        getDetailsBtn.setToolTipText("");
+        getDetailsBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
+        getDetailsBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                serviceStatusBtnActionPerformed(evt);
+                getDetailsBtnActionPerformed(evt);
             }
         });
 
@@ -107,6 +108,18 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
+        serviceStatusBtn.setBackground(new java.awt.Color(49, 10, 49));
+        serviceStatusBtn.setFont(new java.awt.Font("Liberation Mono", 1, 24)); // NOI18N
+        serviceStatusBtn.setForeground(new java.awt.Color(204, 255, 255));
+        serviceStatusBtn.setText("SERVICE STATUS");
+        serviceStatusBtn.setToolTipText("");
+        serviceStatusBtn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
+        serviceStatusBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                serviceStatusBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -123,7 +136,8 @@ public class Home extends javax.swing.JFrame {
                             .addComponent(newServiceButton, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(editServiceBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(deleteServiceBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(serviceStatusBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(serviceStatusBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(getDetailsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(185, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
@@ -151,7 +165,9 @@ public class Home extends javax.swing.JFrame {
                 .addComponent(deleteServiceBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(serviceStatusBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(143, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(getDetailsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(46, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -201,12 +217,11 @@ public class Home extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_editServiceBtnActionPerformed
 
-    private void serviceStatusBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_serviceStatusBtnActionPerformed
+    private void getDetailsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getDetailsBtnActionPerformed
         // TODO add your handling code here:
-        System.out.println("Service status button pressed");
-        new ViewStatus().setVisible(true);
+        new Details().setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_serviceStatusBtnActionPerformed
+    }//GEN-LAST:event_getDetailsBtnActionPerformed
 
     private void newServiceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newServiceButtonActionPerformed
         // TODO add your handling code here:
@@ -222,6 +237,12 @@ public class Home extends javax.swing.JFrame {
         this.setVisible(false);
        
     }//GEN-LAST:event_deleteServiceBtnActionPerformed
+
+    private void serviceStatusBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_serviceStatusBtnActionPerformed
+        // TODO add your handling code here:
+        new ViewStatus().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_serviceStatusBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -264,6 +285,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JButton editServiceBtn;
     private javax.swing.Box.Filler filler1;
     private javax.swing.Box.Filler filler2;
+    private javax.swing.JButton getDetailsBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton newServiceButton;
