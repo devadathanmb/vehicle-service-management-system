@@ -4,6 +4,7 @@ This is a simple GUI desktop application made using `Java Swing` framework to ma
   
 This project was made part of the `KTU Database Management Systems Lab - (CSL333)` project.
 
+---  
 
 ## Getting Started 
 
@@ -30,12 +31,15 @@ source <path to the dump.sql file> # Provide the full path to the dump.sql file 
 ```bash
 java -jar <path to the .jar file> # Provide the path to the downloaded jar file here
 ```
+---  
 
 ## Contributors :
 Devadathan M B  
 Asif J  
 Rishi Raj K  
 Eldose Joy  
+
+---  
 
 ## Tools used :
 * [MYSQL Community Server](https://www.mysql.com/)  
