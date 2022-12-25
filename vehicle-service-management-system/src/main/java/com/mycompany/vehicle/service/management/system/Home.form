@@ -26,20 +26,17 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <EmptySpace min="0" pref="1103" max="32767" attributes="0"/>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <Component id="jPanel1" max="32767" attributes="0"/>
-                  <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
-              </Group>
+              <Component id="jPanel1" alignment="1" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="749" max="32767" attributes="0"/>
+          <EmptySpace min="0" pref="766" max="32767" attributes="0"/>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Component id="jPanel1" max="32767" attributes="0"/>
-                  <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
+                  <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -83,12 +80,12 @@
                   <Group type="102" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Component id="filler1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="552" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="551" max="32767" attributes="0"/>
+                      <EmptySpace pref="0" max="32767" attributes="0"/>
                       <Component id="filler2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="552" max="32767" attributes="0"/>
                   </Group>
@@ -112,20 +109,20 @@
                   <Component id="serviceStatusBtn" min="-2" pref="79" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="getDetailsBtn" min="-2" pref="79" max="-2" attributes="0"/>
-                  <EmptySpace pref="46" max="32767" attributes="0"/>
+                  <EmptySpace pref="63" max="32767" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Component id="filler1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="574" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="374" max="32767" attributes="0"/>
+                      <EmptySpace pref="3" max="32767" attributes="0"/>
                       <Component id="filler2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="375" max="32767" attributes="0"/>
+                      <EmptySpace pref="571" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>

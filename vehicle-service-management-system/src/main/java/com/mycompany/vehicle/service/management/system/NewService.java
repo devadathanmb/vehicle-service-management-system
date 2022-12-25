@@ -355,9 +355,7 @@ public class NewService extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -481,6 +479,7 @@ public class NewService extends javax.swing.JFrame {
     private void clearBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearBtnActionPerformed
         // TODO add your handling code here:
      clearFields();
+     messageField.setText("");
     }//GEN-LAST:event_clearBtnActionPerformed
 
     private void serviceTypeFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_serviceTypeFieldActionPerformed
