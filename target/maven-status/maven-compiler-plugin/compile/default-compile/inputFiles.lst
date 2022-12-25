@@ -1,7 +1,7 @@
-/home/devadathan/NetBeansProjects/vehicle-service-system/vehicle-service-management-system/src/main/java/com/mycompany/vehicle/service/management/system/ViewStatus.java
-/home/devadathan/NetBeansProjects/vehicle-service-system/vehicle-service-management-system/src/main/java/com/mycompany/vehicle/service/management/system/NewService.java
-/home/devadathan/NetBeansProjects/vehicle-service-system/vehicle-service-management-system/src/main/java/com/mycompany/vehicle/service/management/system/EditService.java
-/home/devadathan/NetBeansProjects/vehicle-service-system/vehicle-service-management-system/src/main/java/com/mycompany/vehicle/service/management/system/Status.java
-/home/devadathan/NetBeansProjects/vehicle-service-system/vehicle-service-management-system/src/main/java/com/mycompany/vehicle/service/management/system/ServiceLog.java
-/home/devadathan/NetBeansProjects/vehicle-service-system/vehicle-service-management-system/src/main/java/com/mycompany/vehicle/service/management/system/DeleteService.java
-/home/devadathan/NetBeansProjects/vehicle-service-system/vehicle-service-management-system/src/main/java/com/mycompany/vehicle/service/management/system/Home.java
+/home/devadathan/NetBeansProjects/vehicle-service-management-system/src/main/java/com/mycompany/vehicle/service/management/system/ServiceLog.java
+/home/devadathan/NetBeansProjects/vehicle-service-management-system/src/main/java/com/mycompany/vehicle/service/management/system/ViewStatus.java
+/home/devadathan/NetBeansProjects/vehicle-service-management-system/src/main/java/com/mycompany/vehicle/service/management/system/Home.java
+/home/devadathan/NetBeansProjects/vehicle-service-management-system/src/main/java/com/mycompany/vehicle/service/management/system/DeleteService.java
+/home/devadathan/NetBeansProjects/vehicle-service-management-system/src/main/java/com/mycompany/vehicle/service/management/system/Details.java
+/home/devadathan/NetBeansProjects/vehicle-service-management-system/src/main/java/com/mycompany/vehicle/service/management/system/EditService.java
+/home/devadathan/NetBeansProjects/vehicle-service-management-system/src/main/java/com/mycompany/vehicle/service/management/system/NewService.java
