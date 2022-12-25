@@ -368,7 +368,6 @@ public class NewService extends javax.swing.JFrame {
 
     private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
         // TODO add your handling code here:
-        System.out.println("Submit button pressed");
     
         final String vehicleNumber = vechicleNumberField.getText();
         final String vehicleModel = vehicleModelField.getText();
@@ -448,7 +447,6 @@ public class NewService extends javax.swing.JFrame {
     
     private void homeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBtnActionPerformed
               // TODO add your handling code here:
-              System.out.println("`Home button clicked");
               new Home().setVisible(true);
               this.setVisible(false);
               
