@@ -36,6 +36,7 @@ public class NewService extends javax.swing.JFrame {
      * Creates new form NewService
      */
     public NewService() {
+        
         try {
             initComponents();
             final String URL = "jdbc:mysql://localhost:3306/serviceDB";
@@ -60,6 +61,7 @@ public class NewService extends javax.swing.JFrame {
 
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
+        jScrollPane1 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -89,6 +91,8 @@ public class NewService extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Vehicle Service Management System");
+
+        jScrollPane1.setAutoscrolls(true);
 
         jPanel1.setBackground(new java.awt.Color(136, 183, 181));
         jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -280,13 +284,13 @@ public class NewService extends javax.swing.JFrame {
                                             .addComponent(customerNumberField))
                                         .addComponent(dateField, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(0, 252, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(360, 360, 360)
                 .addComponent(submitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(176, 176, 176)
                 .addComponent(clearBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(275, Short.MAX_VALUE))
+                .addContainerGap(273, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(messageField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -345,30 +349,62 @@ public class NewService extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jScrollPane1.setViewportView(jPanel1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 898, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void customerNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerNameFieldActionPerformed
+    private void serviceHeadIdFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_serviceHeadIdFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_customerNameFieldActionPerformed
+    }//GEN-LAST:event_serviceHeadIdFieldActionPerformed
+
+    private void serviceTypeFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_serviceTypeFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_serviceTypeFieldActionPerformed
+
+    private void clearBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearBtnActionPerformed
+        // TODO add your handling code here:
+        clearFields();
+        messageField.setText("");
+    }//GEN-LAST:event_clearBtnActionPerformed
+
+    private void dateFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dateFieldActionPerformed
+
+    private void customerNumberFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerNumberFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_customerNumberFieldActionPerformed
+
+    private void vehicleModelFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vehicleModelFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_vehicleModelFieldActionPerformed
+
+    private void vechicleNumberFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vechicleNumberFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_vechicleNumberFieldActionPerformed
+
+    private void vehicleTypeFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vehicleTypeFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_vehicleTypeFieldActionPerformed
 
     private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
         // TODO add your handling code here:
-    
+
         final String vehicleNumber = vechicleNumberField.getText();
         final String vehicleModel = vehicleModelField.getText();
         final String vehicleType = vehicleTypeField.getSelectedItem().toString();
@@ -377,7 +413,7 @@ public class NewService extends javax.swing.JFrame {
         final String customerName = customerNameField.getText();
         final String customerNumber = customerNumberField.getText();
         final String serviceDate = dateField.getText();
-        
+
         if (vehicleNumber.isEmpty() | vehicleModel.isEmpty() | vehicleType.isEmpty() | serviceType.isEmpty() | serviceHeadId.isEmpty() | customerName.isEmpty() | customerNumber.isEmpty()){
             messageField.setText("Please fill all the values");
         }
@@ -399,9 +435,9 @@ public class NewService extends javax.swing.JFrame {
                 clearFields();
                 messageField.setForeground(Color.decode("#130a40"));
                 messageField.setText("Successfully registered vehicle for service with service id : " + serviceId);
-                
-//                new Home().setVisible(true);
-//                this.setVisible(false);
+
+                //                new Home().setVisible(true);
+                //                this.setVisible(false);
             }
             catch (SQLIntegrityConstraintViolationException ex) {
                 messageField.setForeground(Color.decode("#1a0105"));
@@ -409,13 +445,22 @@ public class NewService extends javax.swing.JFrame {
                 Logger.getLogger(NewService.class.getName()).log(Level.SEVERE, null, ex);
             }
             catch (SQLException ex) {
-                 messageField.setForeground(Color.decode("#1a0105"));
+                messageField.setForeground(Color.decode("#1a0105"));
                 messageField.setText("Could not add record to the database");
                 Logger.getLogger(NewService.class.getName()).log(Level.SEVERE, null, ex);
-            } 
+            }
         }
-        
     }//GEN-LAST:event_submitBtnActionPerformed
+
+    private void customerNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerNameFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_customerNameFieldActionPerformed
+
+    private void homeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBtnActionPerformed
+        // TODO add your handling code here:
+        new Home().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_homeBtnActionPerformed
 
     // Method to generate a random string to use as service id
      protected String getSaltString() {
@@ -445,48 +490,7 @@ public class NewService extends javax.swing.JFrame {
     }
     
     
-    private void homeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBtnActionPerformed
-              // TODO add your handling code here:
-              new Home().setVisible(true);
-              this.setVisible(false);
-              
-    }//GEN-LAST:event_homeBtnActionPerformed
-
    
-
-    private void vehicleTypeFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vehicleTypeFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_vehicleTypeFieldActionPerformed
-
-    private void vechicleNumberFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vechicleNumberFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_vechicleNumberFieldActionPerformed
-
-    private void vehicleModelFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vehicleModelFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_vehicleModelFieldActionPerformed
-
-    private void customerNumberFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerNumberFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_customerNumberFieldActionPerformed
-
-    private void dateFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dateFieldActionPerformed
-
-    private void clearBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearBtnActionPerformed
-        // TODO add your handling code here:
-     clearFields();
-     messageField.setText("");
-    }//GEN-LAST:event_clearBtnActionPerformed
-
-    private void serviceTypeFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_serviceTypeFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_serviceTypeFieldActionPerformed
-
-    private void serviceHeadIdFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_serviceHeadIdFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_serviceHeadIdFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -541,6 +545,7 @@ public class NewService extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel messageField;
     private javax.swing.JComboBox<String> serviceHeadIdField;
     private javax.swing.JComboBox<String> serviceTypeField;

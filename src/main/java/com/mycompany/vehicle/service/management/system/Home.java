@@ -26,6 +26,7 @@ public class Home extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         viewServiceLogBtn = new javax.swing.JButton();
@@ -138,17 +139,17 @@ public class Home extends javax.swing.JFrame {
                             .addComponent(deleteServiceBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(serviceStatusBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(getDetailsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(185, Short.MAX_VALUE))
+                .addContainerGap(205, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 552, Short.MAX_VALUE)))
+                    .addGap(0, 1123, Short.MAX_VALUE)))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                    .addContainerGap(0, Short.MAX_VALUE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(filler2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(552, Short.MAX_VALUE)))
+                    .addContainerGap(1117, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -167,57 +168,48 @@ public class Home extends javax.swing.JFrame {
                 .addComponent(serviceStatusBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(getDetailsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 574, Short.MAX_VALUE)))
+                    .addGap(0, 771, Short.MAX_VALUE)))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                    .addContainerGap(3, Short.MAX_VALUE)
+                    .addContainerGap(55, Short.MAX_VALUE)
                     .addComponent(filler2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(571, Short.MAX_VALUE)))
+                    .addContainerGap(717, Short.MAX_VALUE)))
         );
+
+        jScrollPane1.setViewportView(jPanel1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1103, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1113, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 766, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addComponent(jScrollPane1)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void viewServiceLogBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewServiceLogBtnActionPerformed
+    private void serviceStatusBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_serviceStatusBtnActionPerformed
         // TODO add your handling code here:
-        new ServiceLog().setVisible(true);
+        new ViewStatus().setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_viewServiceLogBtnActionPerformed
+    }//GEN-LAST:event_serviceStatusBtnActionPerformed
 
-    private void editServiceBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editServiceBtnActionPerformed
+    private void deleteServiceBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteServiceBtnActionPerformed
         // TODO add your handling code here:
-        new EditService().setVisible(true);
+        new DeleteService().setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_editServiceBtnActionPerformed
 
-    private void getDetailsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getDetailsBtnActionPerformed
-        // TODO add your handling code here:
-        new Details().setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_getDetailsBtnActionPerformed
+    }//GEN-LAST:event_deleteServiceBtnActionPerformed
 
     private void newServiceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newServiceButtonActionPerformed
         // TODO add your handling code here:
@@ -225,18 +217,23 @@ public class Home extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_newServiceButtonActionPerformed
 
-    private void deleteServiceBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteServiceBtnActionPerformed
+    private void getDetailsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getDetailsBtnActionPerformed
         // TODO add your handling code here:
-        new DeleteService().setVisible(true);
+        new Details().setVisible(true);
         this.setVisible(false);
-       
-    }//GEN-LAST:event_deleteServiceBtnActionPerformed
+    }//GEN-LAST:event_getDetailsBtnActionPerformed
 
-    private void serviceStatusBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_serviceStatusBtnActionPerformed
+    private void editServiceBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editServiceBtnActionPerformed
         // TODO add your handling code here:
-        new ViewStatus().setVisible(true);
+        new EditService().setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_serviceStatusBtnActionPerformed
+    }//GEN-LAST:event_editServiceBtnActionPerformed
+
+    private void viewServiceLogBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewServiceLogBtnActionPerformed
+        // TODO add your handling code here:
+        new ServiceLog().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_viewServiceLogBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -282,6 +279,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JButton getDetailsBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton newServiceButton;
     private javax.swing.JButton serviceStatusBtn;
     private javax.swing.JButton viewServiceLogBtn;
